@@ -9,7 +9,8 @@ error_chain! {
 }
 
 fn main() -> Result<()> {
-    // We are making a request to the mentioned URL and storing the response in the res varibale.
+    /* We are making a request to the mentioned URL and storing the response in the res varibale.
+    The blocking Client will block the current thread to execute, instead of returning futures that need to be executed on a runtime. */
     let mut res = reqwest::blocking::get("http://httpbin.org/get")?;
 
     let mut body = String::new();
